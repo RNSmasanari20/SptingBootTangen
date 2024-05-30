@@ -1,5 +1,7 @@
 package com.example.springwebtask;
 
+import com.example.springwebtask.entity.ProductsFind;
+import com.example.springwebtask.entity.ProductsRecord;
 import com.example.springwebtask.entity.UserFind;
 import com.example.springwebtask.entity.UsersRecord;
 import com.example.springwebtask.service.ICategoriesService;
@@ -35,6 +37,35 @@ public class SpringwebtaskApplication {
 //        ICategoriesService categoriesService = context.getBean(ICategoriesService.class);
 //        var list = categoriesService.findAll();
 //        list.forEach(System.out::println);
+
+//        IProductsService productsService = context.getBean(IProductsService.class);
+//        System.out.println("---------------------------------------------------------");
+//        var list1 = productsService.searchProduct("キ");
+//        list1.forEach(System.out::println);
+
+//        IProductsService productsService = context.getBean(IProductsService.class);
+//        ProductsFind productsFind = productsService.detailProduct("1");
+//        System.out.println(productsFind);
+
+//        IProductsService productsService = context.getBean(IProductsService.class);
+//        int deletedNum = productsService.deleteProduct("222");
+//        System.out.println(deletedNum);
+
+//        IProductsService productsService = context.getBean(IProductsService.class);
+//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+//        ProductsRecord pr = new ProductsRecord(10,"2", 3,"second",98765,"","説明、mainから",timestamp,timestamp);
+//        int upNum = productsService.updateProduct(pr);
+//        System.out.println(upNum);
+
+//        IProductsService productsService = context.getBean(IProductsService.class);
+//        ProductsFind productsFind = productsService.detailProduct(12);
+//        System.out.println(productsFind.getId());
+//        System.out.println(productsFind.getProductId());
+//        System.out.println(productsFind.getName());
+//        System.out.println(productsFind.getCategoryName());
+//        System.out.println(productsFind.getPrice());
+//        System.out.println(productsFind.getDescription());
+
     }
 
 }

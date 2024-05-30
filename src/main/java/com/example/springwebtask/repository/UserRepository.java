@@ -20,7 +20,7 @@ public class UserRepository implements IUserRepository {
         MapSqlParameterSource param = new MapSqlParameterSource();
         param.addValue("loginId", loginId);
         param.addValue("password", password);
-        var list = jdbcTemplate.query("SELECT login_id, password, name FROM users WHERE login_id = :loginId AND password = :password",
+        var list = jdbcTemplate.query("SELECT login_id, password, name, role FROM users WHERE login_id = :loginId AND password = :password",
                 param, new DataClassRowMapper<>(UserFind.class));
         return list.isEmpty() ? null : list;
     }

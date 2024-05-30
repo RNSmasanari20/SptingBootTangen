@@ -18,4 +18,6 @@ public class CategoriesRepository implements ICategoriesRepository{
         return jdbcTemplate.query("select * from categories",
                 new DataClassRowMapper<>(CategoriesFind.class));
     }
+
+
 }

@@ -32,4 +32,49 @@ public class ProductsService implements IProductsService{
             return 0;
         }
     }
+
+    @Override
+    public List<ProductsFind> searchProduct(String str){
+        try {
+            return productsRepository.searchProduct(str);
+        }catch (SQLException e){
+            return null;
+        }
+    }
+
+    @Override
+    public ProductsFind detailProduct(String str){
+        try {
+            return productsRepository.detailProduct(str);
+        }catch (SQLException e){
+            return null;
+        }
+    }
+
+    @Override
+    public ProductsFind detailProduct(int id){
+        try {
+            return productsRepository.detailProduct(id);
+        }catch (SQLException | DuplicateKeyException e){
+            return null;
+        }
+    }
+
+    @Override
+    public int deleteProduct(String str){
+        try {
+            return productsRepository.deleteProduct(str);
+        }catch (SQLException e){
+            return 0;
+        }
+    }
+
+    @Override
+    public int updateProduct(ProductsRecord productsRecord){
+        try {
+            return productsRepository.updateProduct(productsRecord);
+        }catch (SQLException | DuplicateKeyException e){
+            return 0;
+        }
+    }
 }

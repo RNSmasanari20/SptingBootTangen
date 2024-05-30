@@ -15,7 +15,7 @@
         <p class="user_name">[[ ${session.user.name} ]]さん、こんにちは</p>
         <form class="logout_form" action="logout.html" method="get">
           <button class="custom-btn" type="submit">
-            <img th:src="@{/images/logo.png}">ログアウト</button>
+            <img th:src="@{/images/ドアアイコン.png}">ログアウト</button>
         </form>
       </div>
     </div>
@@ -25,11 +25,15 @@
     <hr>
 
     <div class="btn-area">
-      <div class="btn"><a class="basic-btn regist" href="http://localhost:8080/insert">新規登録</a></div>
+        <span th:if="${session.user.role == 1}">
+            <div class="btn"><a class="basic-btn regist" href="http://localhost:8080/insert">新規登録</a></div>
+        </span>
       <div class="btn"><a class="basic-btn regist" href="category.html">カテゴリ管理</a></div>
     </div>
-    <p>成功メッセージ</p>
-    <form method="get" action="#" class="search-form" th:object="${login}">
+
+    <p th:text="${message}"></p>
+<!--    <form method="get" action="#" class="search-form" th:object="${login}">-->
+<form method="post" action="/menu" class="search-form" th:object="${search}">
 <!--      上のth:objectのloginはindex.htmlのやつとたまたまかぶっただけ、変更するべき-->
       <div class="order">
         <select name="order" class="base-text">
@@ -43,7 +47,7 @@
         </select>
       </div>
       <div class="search-container">
-        <input type="text" name="keyword" size="25" placeholder="キーワード検索">
+        <input type="text" name="keyword" size="25" placeholder="キーワード検索" th:field="*{name}">
         <input type="submit" value="&#xf002">
       </div>
     </form>
@@ -61,12 +65,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr th:each="product : ${products}">
+        <tr th:each="product: ${products}">
           <td th:text="${product.productId}"></td>
           <td th:text="${product.name}"></td>
           <td th:text="${product.price}"></td>
           <td th:text="${product.categoryName}"></td>
-          <td><a class="detail_btn" href="./detail.html">詳細</a></td>
+<!--          <td><a class="detail_btn" href="/detail">詳細</a></td>-->
+          <td><a class="detail_btn" th:href="@{/detail/{id} (id = ${product.id})}">詳細</a></td>
         </tr>
       </tbody>
     </table>

@@ -8,4 +8,5 @@ import java.util.List;
 public interface ICategoriesRepository {
 
     List<CategoriesFind> findAll() throws SQLException;
+
 }

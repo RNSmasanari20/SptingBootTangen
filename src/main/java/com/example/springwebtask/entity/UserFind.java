@@ -15,5 +15,6 @@ public class UserFind {
     @NotEmpty(message = "PASSは必須です")
     private String password;
     private String name;
+    private Integer role;
 
 }
